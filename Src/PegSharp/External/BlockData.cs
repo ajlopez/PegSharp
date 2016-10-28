@@ -15,6 +15,12 @@
             this.hash = new Hash();
         }
 
+        public BlockData(long number)
+        {
+            this.number = number;
+            this.hash = new Hash();
+        }
+
         public long Number { get { return this.number; } }
 
         public Hash Hash { get { return this.hash; } }

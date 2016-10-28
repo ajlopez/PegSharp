@@ -17,5 +17,16 @@
             Assert.IsNotNull(block.Hash.Bytes);
             Assert.AreEqual(32, block.Hash.Bytes.Length);
         }
+
+        [TestMethod]
+        public void CreateWithNumber()
+        {
+            var block = new BlockData(10);
+
+            Assert.AreEqual(10, block.Number);
+            Assert.IsNotNull(block.Hash);
+            Assert.IsNotNull(block.Hash.Bytes);
+            Assert.AreEqual(32, block.Hash.Bytes.Length);
+        }
     }
 }
