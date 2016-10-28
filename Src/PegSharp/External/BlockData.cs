@@ -9,6 +9,7 @@
     {
         private long number;
         private Hash hash;
+        private Hash parentHash;
 
         public BlockData()
         {
@@ -21,8 +22,17 @@
             this.hash = new Hash();
         }
 
+        public BlockData(long number, Hash parentHash)
+        {
+            this.number = number;
+            this.hash = new Hash();
+            this.parentHash = parentHash;
+        }
+
         public long Number { get { return this.number; } }
 
         public Hash Hash { get { return this.hash; } }
+
+        public Hash ParentHash { get { return this.parentHash; } }
     }
 }
