@@ -29,6 +29,13 @@
             this.parentHash = parentHash;
         }
 
+        public BlockData(BlockData parent)
+        {
+            this.number = parent.Number + 1;
+            this.hash = new Hash();
+            this.parentHash = parent.Hash;
+        }
+
         public long Number { get { return this.number; } }
 
         public Hash Hash { get { return this.hash; } }

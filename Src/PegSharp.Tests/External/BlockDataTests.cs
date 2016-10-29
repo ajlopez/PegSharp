@@ -43,5 +43,19 @@
             Assert.IsNotNull(block.ParentHash);
             Assert.AreEqual(parentHash, block.ParentHash);
         }
+
+        [TestMethod]
+        public void CreateWithParent()
+        {
+            var parent = new BlockData(10);
+            var block = new BlockData(parent);
+
+            Assert.AreEqual(11, block.Number);
+            Assert.IsNotNull(block.Hash);
+            Assert.IsNotNull(block.Hash.Bytes);
+            Assert.AreEqual(32, block.Hash.Bytes.Length);
+            Assert.IsNotNull(block.ParentHash);
+            Assert.AreEqual(parent.Hash, block.ParentHash);
+        }
     }
 }
