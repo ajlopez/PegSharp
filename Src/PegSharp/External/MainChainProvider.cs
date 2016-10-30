@@ -7,6 +7,18 @@
 
     public class MainChainProvider
     {
-        public long Height { get { return 0; } }
+        private BlockData blockData;
+
+        public long Height { get { return blockData == null ? 0 : 1; } }
+
+        public void Add(BlockData blockData)
+        {
+            this.blockData = blockData;
+        }
+
+        public BlockData GetBlockData(long number)
+        {
+            return this.blockData;
+        }
     }
 }
