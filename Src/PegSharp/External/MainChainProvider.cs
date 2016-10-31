@@ -7,18 +7,21 @@
 
     public class MainChainProvider
     {
-        private BlockData blockData;
+        private List<BlockData> blocksData = new List<BlockData>();
 
-        public long Height { get { return blockData == null ? 0 : 1; } }
+        public long Height { get { return blocksData.Count; } }
 
         public void Add(BlockData blockData)
         {
-            this.blockData = blockData;
+            this.blocksData.Add(blockData);
         }
 
         public BlockData GetBlockData(long number)
         {
-            return this.blockData;
+            if (number >= this.blocksData.Count)
+                return null;
+
+            return this.blocksData[(int)number];
         }
     }
 }

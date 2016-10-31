@@ -26,5 +26,20 @@
             Assert.AreEqual(1, chain.Height);
             Assert.AreSame(block, chain.GetBlockData(0));
         }
+
+        [TestMethod]
+        public void AddTwoBlocks()
+        {
+            var chain = new MainChainProvider();
+            var genesis = new BlockData(0);
+            var block = new BlockData(genesis);
+
+            chain.Add(genesis);
+            chain.Add(block);
+
+            Assert.AreEqual(2, chain.Height);
+            Assert.AreSame(genesis, chain.GetBlockData(0));
+            Assert.AreSame(block, chain.GetBlockData(1));
+        }
     }
 }
