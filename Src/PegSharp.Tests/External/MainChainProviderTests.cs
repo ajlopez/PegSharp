@@ -41,5 +41,23 @@
             Assert.AreSame(genesis, chain.GetBlockData(0));
             Assert.AreSame(block, chain.GetBlockData(1));
         }
+
+        [TestMethod]
+        public void AddTenBlocks()
+        {
+            var chain = new MainChainProvider();
+
+            chain.Add(10);
+
+            Assert.AreEqual(10, chain.Height);
+
+            for (long k = 0; k < 10; k++)
+            {
+                Assert.AreEqual(k, chain.GetBlockData(k).Number);
+
+                if (k > 0)
+                    Assert.AreEqual(chain.GetBlockData(k - 1).Hash, chain.GetBlockData(k).ParentHash);
+            }
+        }
     }
 }

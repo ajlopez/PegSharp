@@ -16,6 +16,15 @@
             this.blocksData.Add(blockData);
         }
 
+        public void Add(int nblocks)
+        {
+            for (int k = 0; k < nblocks; k++)
+                if (blocksData.Count == 0)
+                    blocksData.Add(new BlockData(0));
+                else
+                    blocksData.Add(new BlockData(blocksData[k - 1]));
+        }
+
         public BlockData GetBlockData(long number)
         {
             if (number >= this.blocksData.Count)
