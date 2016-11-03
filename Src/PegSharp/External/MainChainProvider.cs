@@ -22,7 +22,7 @@
                 if (blocksData.Count == 0)
                     blocksData.Add(new BlockData(0));
                 else
-                    blocksData.Add(new BlockData(blocksData[k - 1]));
+                    blocksData.Add(new BlockData(blocksData[blocksData.Count - 1]));
         }
 
         public BlockData GetBlockData(long number)
