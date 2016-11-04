@@ -78,5 +78,24 @@
                     Assert.AreEqual(chain.GetBlockData(k - 1).Hash, chain.GetBlockData(k).ParentHash);
             }
         }
+
+        [TestMethod]
+        public void AddTenBlockAndReplaceAndAddMoreBlocks()
+        {
+            var chain = new MainChainProvider();
+
+            chain.Add(10);
+            chain.Add(5, 10);
+
+            Assert.AreEqual(16, chain.Height);
+
+            for (long k = 0; k < 16; k++)
+            {
+                Assert.AreEqual(k, chain.GetBlockData(k).Number);
+
+                if (k > 0)
+                    Assert.AreEqual(chain.GetBlockData(k - 1).Hash, chain.GetBlockData(k).ParentHash);
+            }
+        }
     }
 }
