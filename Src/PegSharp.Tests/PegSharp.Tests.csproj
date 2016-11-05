@@ -48,6 +48,7 @@
     <Compile Include="External\HashTests.cs" />
     <Compile Include="External\BlockDataTests.cs" />
     <Compile Include="External\MainChainProviderTests.cs" />
+    <Compile Include="External\MainChainTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
