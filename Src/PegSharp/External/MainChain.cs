@@ -7,6 +7,21 @@
 
     public class MainChain
     {
-        public long Height { get { return 0; } }
+        private List<BlockData> blocks = new List<BlockData>();
+
+        public long Height { get { return blocks.Count; } }
+
+        public BlockData BestBlock
+        {
+            get
+            {
+                return this.blocks.Last();
+            }
+        }
+
+        public void Add(BlockData block)
+        {
+            this.blocks.Add(block);
+        }
     }
 }

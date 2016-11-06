@@ -14,5 +14,17 @@
 
             Assert.AreEqual(0, chain.Height);
         }
+
+        [TestMethod]
+        public void AddGenesisBlock()
+        {
+            var chain = new MainChain();
+            var genesis = new BlockData(0);
+
+            chain.Add(genesis);
+
+            Assert.AreEqual(1, chain.Height);
+            Assert.AreSame(genesis, chain.BestBlock);
+        }
     }
 }
