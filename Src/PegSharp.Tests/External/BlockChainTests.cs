@@ -5,12 +5,12 @@
     using PegSharp.External;
 
     [TestClass]
-    public class MainChainTests
+    public class BlockChainTests
     {
         [TestMethod]
         public void CreateEmptyMainChain()
         {
-            var chain = new MainChain();
+            var chain = new BlockChain();
 
             Assert.AreEqual(0, chain.Height);
         }
@@ -18,7 +18,7 @@
         [TestMethod]
         public void AddGenesisBlock()
         {
-            var chain = new MainChain();
+            var chain = new BlockChain();
             var genesis = new BlockData(0);
 
             chain.Add(genesis);

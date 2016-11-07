@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class MainChain
+    public class BlockChain
     {
         private List<BlockData> blocks = new List<BlockData>();
 
