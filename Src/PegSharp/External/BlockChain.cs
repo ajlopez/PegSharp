@@ -21,7 +21,8 @@
 
         public void Add(BlockData block)
         {
-            this.blocks.Add(block);
+            if (this.blocks.Count == 0 || this.BestBlock.Hash.Equals(block.ParentHash))
+                this.blocks.Add(block);
         }
     }
 }
