@@ -19,10 +19,15 @@
             }
         }
 
-        public void Add(BlockData block)
+        public bool Add(BlockData block)
         {
             if (this.blocks.Count == 0 || this.BestBlock.Hash.Equals(block.ParentHash))
+            {
                 this.blocks.Add(block);
+                return true;
+            }
+
+            return false;
         }
     }
 }
