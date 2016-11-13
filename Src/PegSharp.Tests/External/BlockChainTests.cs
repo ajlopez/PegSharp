@@ -42,6 +42,20 @@
         }
 
         [TestMethod]
+        public void AddBlockAndGenesis()
+        {
+            var chain = new BlockChain();
+            var genesis = new BlockData(0);
+            var block = new BlockData(genesis);
+
+            Assert.IsFalse(chain.Add(block));
+            Assert.IsTrue(chain.Add(genesis));
+
+            Assert.AreEqual(2, chain.Height);
+            Assert.AreSame(block, chain.BestBlock);
+        }
+
+        [TestMethod]
         public void RejectBlock()
         {
             var chain = new BlockChain();
