@@ -8,6 +8,7 @@
     public class BlockChain
     {
         private List<BlockData> blocks = new List<BlockData>();
+        private List<BlockData> others = new List<BlockData>();
 
         public long Height { get { return blocks.Count; } }
 
@@ -26,6 +27,8 @@
                 this.blocks.Add(block);
                 return true;
             }
+
+            others.Add(block);
 
             return false;
         }
