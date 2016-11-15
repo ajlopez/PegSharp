@@ -25,6 +25,14 @@
             if (this.blocks.Count == 0 || this.BestBlock.Hash.Equals(block.ParentHash))
             {
                 this.blocks.Add(block);
+
+                var children = this.others.Where(b => b.ParentHash.Equals(block));
+
+                foreach (var child in children) {
+                    this.others.Remove(child);
+                    this.Add(child);
+                }
+
                 return true;
             }
 
