@@ -22,7 +22,7 @@
 
         public bool Add(BlockData block)
         {
-            if (this.blocks.Count == 0 || this.BestBlock.Hash.Equals(block.ParentHash))
+            if ((this.blocks.Count == 0 && block.Number == 0) || (this.blocks.Count > 0 && this.BestBlock.Hash.Equals(block.ParentHash)))
             {
                 this.blocks.Add(block);
 
