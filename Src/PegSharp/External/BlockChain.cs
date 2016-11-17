@@ -26,7 +26,7 @@
             {
                 this.blocks.Add(block);
 
-                var children = this.others.Where(b => b.ParentHash.Equals(block));
+                var children = this.others.Where(b => b.ParentHash.Equals(block.Hash));
 
                 foreach (var child in children) {
                     this.others.Remove(child);
