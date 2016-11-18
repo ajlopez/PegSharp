@@ -54,6 +54,22 @@
             Assert.AreEqual(2, chain.Height);
             Assert.AreSame(block, chain.BestBlock);
         }
+        
+        [TestMethod]
+        public void AddBlocksAndGenesis()
+        {
+            var chain = new BlockChain();
+            var genesis = new BlockData(0);
+            var block = new BlockData(genesis);
+            var block2 = new BlockData(block);
+
+            Assert.IsFalse(chain.Add(block2));
+            Assert.IsFalse(chain.Add(block));
+            Assert.IsTrue(chain.Add(genesis));
+
+            Assert.AreEqual(3, chain.Height);
+            Assert.AreSame(block2, chain.BestBlock);
+        }
 
         [TestMethod]
         public void RejectBlock()
