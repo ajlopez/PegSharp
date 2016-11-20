@@ -44,6 +44,7 @@
     <Compile Include="External\Hash.cs" />
     <Compile Include="External\BlockChain.cs" />
     <Compile Include="External\MainChainProvider.cs" />
+    <Compile Include="External\TransactionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

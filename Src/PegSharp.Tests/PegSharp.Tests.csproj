@@ -49,6 +49,7 @@
     <Compile Include="External\BlockDataTests.cs" />
     <Compile Include="External\MainChainProviderTests.cs" />
     <Compile Include="External\BlockChainTests.cs" />
+    <Compile Include="External\TransactionDataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
