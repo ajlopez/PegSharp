@@ -16,6 +16,11 @@
             this.hash = new Hash();
         }
 
+        public BlockData(Hash hash)
+        {
+            this.hash = hash;
+        }
+
         public BlockData(long number)
         {
             this.number = number;
@@ -41,5 +46,21 @@
         public Hash Hash { get { return this.hash; } }
 
         public Hash ParentHash { get { return this.parentHash; } }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (!(obj is BlockData))
+                return false;
+
+            return this.hash.Equals(((BlockData)obj).hash);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.hash.GetHashCode();
+        }
     }
 }

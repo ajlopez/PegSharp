@@ -57,5 +57,21 @@
             Assert.IsNotNull(block.ParentHash);
             Assert.AreEqual(parent.Hash, block.ParentHash);
         }
+
+        [TestMethod]
+        public void Equals()
+        {
+            var block1 = new BlockData();
+            var block2 = new BlockData(block1.Hash);
+            var block3 = new BlockData();
+
+            Assert.AreEqual(block1, block2);
+            Assert.AreEqual(block2, block1);
+            Assert.AreNotEqual(block1, block3);
+            Assert.AreNotEqual(block1, 42);
+            Assert.AreNotEqual(block1, "foo");
+
+            Assert.AreEqual(block1.GetHashCode(), block2.GetHashCode());
+        }
     }
 }
